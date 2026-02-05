@@ -31,7 +31,7 @@ jobs:
           fetch-depth: 0 # Ensure full git history is fetched
 
       # Runs a single command using the runners shell
-      - name: changes to a file (example: update a version number)
+      - name: changes to a file
         run: |
           echo "Updated content at $(date)" >> version.txt
           cat version.txt
