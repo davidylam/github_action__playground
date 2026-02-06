@@ -38,4 +38,4 @@ jobs:
           body: Credit new contributors by updating AUTHORS
           branch: update-authors
           base: main
-          delete-branch: true
+          
