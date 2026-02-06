@@ -1,0 +1,24 @@
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: environment
+      perform_setup:
+        description: 'Perform a full setup'
+        required: true
+        type: boolean
+      comment_text:
+        description: 'A comment to add'
+        required: false
+        type: string
