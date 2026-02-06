@@ -45,7 +45,7 @@ jobs:
       - name: Create a new pull request with changes
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update version.txt with new date
           title: '[Automated] Update version.txt file'
           body: |
