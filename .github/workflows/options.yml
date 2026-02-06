@@ -15,7 +15,12 @@ on:
       environment:
         description: 'Environment to deploy to'
         required: true
-        type: environment
+        type: choice
+        options:
+        - dev
+        - qa
+        - uat
+        - prod
       perform_setup:
         description: 'Perform a full setup'
         required: true
@@ -38,3 +43,4 @@ jobs:
           echo "Environment: ${{ github.event.inputs.environment }}"
           echo "Perform Setup: ${{ github.event.inputs.perform_setup }}"
           echo "Comment: ${{ github.event.inputs.comment_text }}"
+          echo "Comment: ${{ github.event.inputs.environment }}"
