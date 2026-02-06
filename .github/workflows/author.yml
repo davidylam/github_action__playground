@@ -20,13 +20,14 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Update AUTHORS
-        run: |
-          git log --format='%aN <%aE>%n%cN <%cE>' | sort -u > AUTHORS
       - name: Set up git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update AUTHORS
+        run: |
+          echo "Hello World from action" > message.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
