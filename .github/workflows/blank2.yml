@@ -50,7 +50,7 @@ jobs:
           title: '[Automated] Update version.txt file'
           body: |
             This is an auto-generated pull request to update the `version.txt` file.
-          branch: update-version-action 2# The branch to create the PR from
+          branch: update-version-action_3 # The branch to create the PR from
           base: main # The branch to merge changes into
           labels: automated-pr, documentation
           draft: false
