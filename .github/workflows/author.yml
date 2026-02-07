@@ -23,6 +23,7 @@ jobs:
             folder1/
             folder3/
             folder5/
+          sparse-checkout-cone: true
 
       - name: Set up git user
         run: |
