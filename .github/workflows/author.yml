@@ -30,7 +30,6 @@ jobs:
       - name: Update AUTHORS
         run: |
           echo "Hello World from action" > message.txt
-          rm .editconfig
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
