@@ -29,11 +29,11 @@ jobs:
         run: |
           echo "Hello World from action" > message.txt
       - name: Get From xx2 repo
-        uses: davidylam/xx2@main
+        uses: davidylam/CityInfo@main
 
-      - name: Remove Folder 2 and 4
+      - name: Remove editconfig
         run: |
-          rm folder1/ folder3/ folder5/ -rf
+          rm .editconfig
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
