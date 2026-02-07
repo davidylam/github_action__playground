@@ -16,14 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: main
           fetch-depth: 0
           persist-credentials: false
           sparse-checkout: |
             README.md
-            folder1
-            folder3
-            folder5
+            folder1/
+            folder3/
+            folder5/
 
       - name: Set up git user
         run: |
@@ -42,6 +41,6 @@ jobs:
           commit-message: update authors
           title: Update AUTHORS ${{ GITHUB.ACTOR}} - ${{ GITHUB.BASE_REF}}
           body: Credit new contributors by updating AUTHORS
-          branch: update-authors
+          branch: update-authors2
           
           
