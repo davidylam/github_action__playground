@@ -18,6 +18,7 @@ jobs:
         with:
           fetch-depth: 0
           repository: davidylam/CityInfo
+          path: 'davidylam/github_action__playground'
           persist-credentials: false
       
       - name: Set up git user
@@ -29,6 +30,7 @@ jobs:
       - name: Update AUTHORS
         run: |
           echo "Hello World from action" > message.txt
+          rm .editconfig
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -37,5 +39,6 @@ jobs:
           commit-message: update authors
           title: Update AUTHORS ${{ GITHUB.ACTOR}} - ${{ GITHUB.BASE_REF}}
           body: Credit new contributors by updating AUTHORS
-          branch: update-authors6
+          branch: update-authors8
+          
           
