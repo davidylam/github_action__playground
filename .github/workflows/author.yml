@@ -40,5 +40,6 @@ jobs:
           title: Update AUTHORS ${{ GITHUB.ACTOR}} - ${{ GITHUB.BASE_REF}}
           body: Credit new contributors by updating AUTHORS
           branch: update-authors8
+          base: main
           
           
