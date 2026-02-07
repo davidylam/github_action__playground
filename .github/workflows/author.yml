@@ -18,11 +18,18 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          sparse-checkout: |
+            README.md
+            folder1
+            folder3
+            folder5
+            
       - name: Set up git user
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      
       - name: Update AUTHORS
         run: |
           echo "Hello World from action" > message.txt
