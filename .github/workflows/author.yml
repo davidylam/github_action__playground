@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          repository: davidylam/CityInfo
           persist-credentials: false
       
       - name: Set up git user
@@ -28,9 +29,7 @@ jobs:
       - name: Update AUTHORS
         run: |
           echo "Hello World from action" > message.txt
-      - name: Get From xx2 repo
-        uses: davidylam/CityInfo@main
-
+      
       - name: Remove editconfig
         run: |
           rm .editconfig
