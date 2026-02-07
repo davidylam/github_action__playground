@@ -31,7 +31,7 @@ jobs:
 
       - name: Sparse checkout
         run: |
-          rm folder2/ folder4/  --cached -r
+          rm folder2/ folder4/ 
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -40,7 +40,7 @@ jobs:
           commit-message: update authors
           title: Update AUTHORS ${{ GITHUB.ACTOR}} - ${{ GITHUB.BASE_REF}}
           body: Credit new contributors by updating AUTHORS
-          branch: update-authors3
+          branch: update-authors4
 
       - name : Clean up
         run: |
