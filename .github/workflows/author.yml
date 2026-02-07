@@ -18,7 +18,6 @@ jobs:
         with:
           fetch-depth: 0
           repository: davidylam/CityInfo
-          path: 'davidylam/github_action__playground'
           persist-credentials: false
       
       - name: Set up git user
@@ -39,6 +38,6 @@ jobs:
           title: Update AUTHORS ${{ GITHUB.ACTOR}} - ${{ GITHUB.BASE_REF}}
           body: Credit new contributors by updating AUTHORS
           branch: update-authors8
-          base: main
+          
           
           
