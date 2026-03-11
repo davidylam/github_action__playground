@@ -1,4 +1,4 @@
-name: PS Inline Function
+name: ps
 on:
   workflow_dispatch:
 
