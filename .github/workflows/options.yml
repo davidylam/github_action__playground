@@ -49,3 +49,6 @@ jobs:
         run: |
            Write-Host "Hello World From DLam"
            Write-Host "Hello World From DLam 2"
+      - name: From Powershell file
+        shell: pwsh
+        run: ./src/testpwsh.ps1
