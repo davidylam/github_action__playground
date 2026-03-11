@@ -37,6 +37,9 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
     
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      
       - name: Print User Selections
         run: |
           echo "Log Level: ${{ github.event.inputs.logLevel }}"
@@ -52,9 +55,5 @@ jobs:
            Write-Host "Hello World From DLam 2"
       - name: From Powershell file
         shell: pwsh
-        run: |
-          "./src/testpwsh.ps1"
-      - name: From Powershell file2
-        shell: pwsh
-        run: |
-          . "./src/testpwsh.ps1"
+        run: ./src/testpwsh.ps1
+      
