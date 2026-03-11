@@ -44,6 +44,7 @@ jobs:
           echo "Perform Setup: ${{ github.event.inputs.perform_setup }}"
           echo "Comment: ${{ github.event.inputs.comment_text }}"
           echo "Comment: ${{ github.event.inputs.environment }}"
+          echo "github.action_path ${{ github.action_path }}"
       - name: PowerShell Write-Host
         shell: pwsh
         run: |
@@ -51,4 +52,4 @@ jobs:
            Write-Host "Hello World From DLam 2"
       - name: From Powershell file
         shell: pwsh
-        run: . "${{github.workspace}}/src/testpwsh.ps1"
+        run: "./src/testpwsh.ps1"
