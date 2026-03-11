@@ -44,3 +44,8 @@ jobs:
           echo "Perform Setup: ${{ github.event.inputs.perform_setup }}"
           echo "Comment: ${{ github.event.inputs.comment_text }}"
           echo "Comment: ${{ github.event.inputs.environment }}"
+      - name: PowerShell Write-Host
+        shell: pwsh
+        run: |
+           Write-Host "Hello World From DLam"
+           Write-Host "Hello World From DLam 2"
