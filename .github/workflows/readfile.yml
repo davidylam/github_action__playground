@@ -36,3 +36,21 @@ jobs:
           done < "$FILE2"
         # Specify bash shell if needed (default on ubuntu-latest)
         shell: bash
+
+      - name: Create PR to remove folders
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b Revision2
+          rm -rf folder1 folder2 folder3
+          git add -A
+          git commit -m "Remove folder1, folder2, and folder3"
+          git push -u origin Revision2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        run: |
+          gh pr create --base main --head Revision2 --title "Remove folder1, folder2, and folder3" --body "This PR removes folder1, folder2, and folder3 from the repository."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
