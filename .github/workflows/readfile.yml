@@ -14,7 +14,7 @@ jobs:
         # The checkout action is needed to access files in your repository
         uses: actions/checkout@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PBI_TOKEN }}
 
       - name: Create a sample file
         run: |
@@ -50,8 +50,8 @@ jobs:
           else
             echo "Branch Revision2 does not exist"
           fi
-        # env:
-        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         #env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create PR to remove folders
         run: |
@@ -68,5 +68,5 @@ jobs:
       - name: Create Pull Request
         run: |
           gh pr create --base main --head Revision2 --title "Remove folder1 and folder3" --body "This PR removes folder1 and folder3 from the repository."
-        env:
-          GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
+        #env:
+        #  GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
