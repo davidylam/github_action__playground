@@ -1,0 +1,35 @@
+name: Set Repo Variables
+
+on:
+  workflow_dispatch:
+    inputs:
+      variable_name:
+        description: 'About to set/overwrite deployment variables for repo'
+        required: false
+        type: string
+
+
+# permissions:
+  # Crucial: The GITHUB_TOKEN must have write access to actions
+  # actions: write
+
+jobs:
+  update-variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update repository variable
+        env:
+          GH_TOKEN: ${{ secrets.PBI_TOKEN }} 
+        run: |
+          # Uses the pre-installed GitHub CLI (gh)
+          REPO="${{ github.repository }}"
+
+          # Tenant and Client IDs
+          gh variable set "TENANT_ID"         --body "12345 DLam was here" --repo "$REPO"
+          gh variable set "CLIENT_ID"         --body "ksfjsfkjs dlam was here" --repo "$REPO"
+
+
+          
+          
+
+          
