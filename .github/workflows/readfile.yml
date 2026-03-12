@@ -1,0 +1,28 @@
+name: Read File Lines
+
+on: 
+  workflow_dispatch
+
+jobs:
+  read_lines_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        # The checkout action is needed to access files in your repository
+        uses: actions/checkout@v4
+
+      - name: Create a sample file
+        run: |
+          echo "Line 1: Apple" > list.txt
+          echo "Line 2: Banana" >> list.txt
+          echo "Line 3: Cherry" >> list.txt
+
+      - name: Read and echo each line
+        run: |
+          FILE=list.txt
+          # Use a while loop with 'read -r' for robust line reading
+          while read -r line; do
+            echo "Processing line: $line"
+          done < "$FILE"
+        # Specify bash shell if needed (default on ubuntu-latest)
+        shell: bash
