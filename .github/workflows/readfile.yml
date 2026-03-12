@@ -29,7 +29,7 @@ jobs:
         shell: bash
       - name: Read and echo each line
         run: |
-          FILE=src/pwsh.ps1
+          FILE=src/names.txt
           # Use a while loop with 'read -r' for robust line reading
           while read -r line; do
             echo "Processing line: $line"
