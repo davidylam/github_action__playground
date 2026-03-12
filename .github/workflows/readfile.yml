@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout code
         # The checkout action is needed to access files in your repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Create a sample file
         run: |
