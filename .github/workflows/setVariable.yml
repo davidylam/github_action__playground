@@ -25,8 +25,8 @@ jobs:
           REPO="${{ github.repository }}"
 
           # Tenant and Client IDs
-          gh variable set "TENANT_ID"         --body "12345 DLam was here" --repo "$REPO"
-          gh variable set "CLIENT_ID"         --body "ksfjsfkjs dlam was here" --repo "$REPO"
+          gh variable set "VariableA"         --body "12345 DLam was here" --repo "$REPO"
+          gh variable set "VariableB"         --body "ksfjsfkjs dlam was here" --repo "$REPO"
 
 
           
