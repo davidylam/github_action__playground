@@ -42,13 +42,13 @@ jobs:
         # Specify bash shell if needed (default on ubuntu-latest)
         shell: bash
 
-      - name: Delete Revision2 branch if exists
+      - name: Delete Revision3 branch if exists
         run: |
-          if git ls-remote --heads origin Revision2 | grep -q Revision2; then
-            echo "Branch Revision2 exists, deleting..."
-            git push origin --delete Revision2
+          if git ls-remote --heads origin Revision3 | grep -q Revision3; then
+            echo "Branch Revision3 exists, deleting..."
+            git push origin --delete Revision3
           else
-            echo "Branch Revision2 does not exist"
+            echo "Branch Revision3 does not exist"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
@@ -57,16 +57,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b Revision2
+          git checkout -b Revision3
           FILE2=src/names.txt
           while read -r line; do
             echo "Processing line: $line"
-            rm -rf $linefolder1 folder3
+            rm -rf $line
           done < "$FILE2"
 
           git add -A
           git commit -m "Remove folder1 and folder3"
-          git push -u origin Revision2
+          git push -u origin Revision3
         env:
           GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
 
