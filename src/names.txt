@@ -1,5 +1,2 @@
-amy
-beth
-cath
-denise
-eve
+folder1
+folder2
