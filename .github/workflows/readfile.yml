@@ -34,8 +34,8 @@ jobs:
           else
             echo "Branch Revision4 does not exist"
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
 
       - name: Create PR to remove folders
         run: |
