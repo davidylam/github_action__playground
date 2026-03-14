@@ -16,22 +16,6 @@ jobs:
         with:
           token: ${{ secrets.PBI_TOKEN }}
 
-      # - name: Create a sample file
-      #   run: |
-      #     echo "github.workspace: >>${{ github.workspace }}<<"
-      #     echo "Line 1: Apple" > list.txt
-      #     echo "Line 2: Banana" >> list.txt
-      #     echo "Line 3: Cherry" >> list.txt
-
-      # - name: Read and echo each line
-      #   run: |
-      #     FILE=dlam.txt
-      #     # Use a while loop with 'read -r' for robust line reading
-      #     while read -r line; do
-      #       echo "Processing line: $line"
-      #     done < "$FILE"
-      #   # Specify bash shell if needed (default on ubuntu-latest)
-      #   shell: bash
       - name: Read and echo each line
         run: |
           FILE2=src/names.txt
@@ -42,13 +26,13 @@ jobs:
         # Specify bash shell if needed (default on ubuntu-latest)
         shell: bash
 
-      - name: Delete Revision3 branch if exists
+      - name: Delete Revision4 branch if exists
         run: |
-          if git ls-remote --heads origin Revision3 | grep -q Revision3; then
-            echo "Branch Revision3 exists, deleting..."
-            git push origin --delete Revision3
+          if git ls-remote --heads origin Revision4 | grep -q Revision4; then
+            echo "Branch Revision4 exists, deleting..."
+            git push origin --delete Revision4
           else
-            echo "Branch Revision2 does not exist"
+            echo "Branch Revision4 does not exist"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
@@ -57,21 +41,21 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b Revision3
+          git checkout -b Revision4
           FILE2=src/names.txt
           while read -r line; do
             echo "Processing line: $line"
-            rm -rf $line
+            rm -rf XXX/$line
           done < "$FILE2"
 
           git add -A
-          git commit -m "Remove folder1 and folder3"
-          git push -u origin Revision3
+          git commit -m "Remove folder1 and folder2"
+          git push -u origin Revision4
         env:
           GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
 
       - name: Create Pull Request
         run: |
-          gh pr create --base main --head Revision3 --title "Remove folder1 and folder3" --body "This PR removes folder1 and folder3 from the repository."
+          gh pr create --base main --head Revision4 --title "Remove folder1 and folder2" --body "This PR removes folder1 and folder2 from the repository."
         env:
           GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
