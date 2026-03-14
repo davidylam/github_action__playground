@@ -45,7 +45,7 @@ jobs:
           FILE2=src/names.txt
           while read -r line; do
             echo "Processing line: $line"
-            rm -rf XXX/$line
+            rm -rf "$line"
           done < "$FILE2"
 
           git add -A
