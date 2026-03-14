@@ -57,5 +57,5 @@ jobs:
       - name: Create Pull Request
         run: |
           gh pr create --base main --head Revision4 --title "Remove folder1 and folder2" --body "This PR removes folder1 and folder2 from the repository."
-        # env:
-        #  GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PBI_TOKEN }}
