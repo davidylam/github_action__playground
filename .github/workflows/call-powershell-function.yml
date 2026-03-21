@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest # or windows-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4 # Action to check out your repository code
+        uses: actions/checkout@v6 # Action to check out your repository code
  
       - name: Run PowerShell function from external file
         shell: pwsh # Specifies PowerShell 7+ shell
