@@ -1,0 +1,25 @@
+name: Call External PowerShell Function
+ 
+on: [workflow_dispatch]
+ 
+jobs:
+  run-powershell-function:
+    runs-on: ubuntu-latest # or windows-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4 # Action to check out your repository code
+ 
+      - name: Run PowerShell function from external file
+        shell: pwsh # Specifies PowerShell 7+ shell
+        run: |
+          # Dot-source the script file to load its functions into the current session
+          . ./src/MyFunctions.ps1
+ 
+          # Call the function
+          Say-Hello -Name "GitHub Actions User"
+ 
+      - name: Another step calling another function
+        shell: pwsh
+        run: |
+          . ./src/MyFunctions.ps1
+          Get-CurrentTime
