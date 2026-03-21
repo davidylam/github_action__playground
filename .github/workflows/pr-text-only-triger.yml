@@ -17,9 +17,10 @@ jobs:
           echo "Changed files compared to base:"
           echo "Base ref: ${{ github.base_ref }}"
           git fetch origin "${{ github.base_ref }}" --depth=1
+          git switch -c temp-branch FETCH_HEAD
           echo "Hello World" > hello.txt
-          git diff --name-only "${{ github.base_ref }}" > changed_files.txt
-          cat changed_files.txt
+          git add hello.txt
+          git commit -m "Add hello.txt"
 
       # Your real steps here (lint, tests, etc.)
       - name: Placeholder
