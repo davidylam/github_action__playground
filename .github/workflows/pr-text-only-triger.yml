@@ -1,16 +1,6 @@
 name: PR (Text Files Only Trigger)
 
-on:
-  pull_request:
-    branches: [ main ]
-    # Run only when these file globs change
-    paths:
-      - '**/*.txt'
-      - '**/*.md'
-      - '**/*.json'
-      - '**/*.yml'
-      - '**/*.yaml'
-      - '**/*.csv'
+on: [workflow_dispatch]
 
 permissions:
   contents: read
