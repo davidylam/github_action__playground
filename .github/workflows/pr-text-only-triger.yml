@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Show changed files (debug)
         run: |
           echo "Changed files compared to base:"
           git fetch origin "${{ github.base_ref }}" --depth=1
+          echo "Hello World" > hello.txt
           git diff --name-only "origin/${{ github.base_ref }}" > changed_files.txt
           cat changed_files.txt
 
