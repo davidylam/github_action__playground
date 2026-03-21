@@ -1,0 +1,34 @@
+name: PR (Text Files Only Trigger)
+
+on:
+  pull_request:
+    branches: [ main ]
+    # Run only when these file globs change
+    paths:
+      - '**/*.txt'
+      - '**/*.md'
+      - '**/*.json'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '**/*.csv'
+
+permissions:
+  contents: read
+
+jobs:
+  text-only-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show changed files (debug)
+        run: |
+          echo "Changed files compared to base:"
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          git diff --name-only "origin/${{ github.base_ref }}" > changed_files.txt
+          cat changed_files.txt
+
+      # Your real steps here (lint, tests, etc.)
+      - name: Placeholder
+        run: echo "Run your steps here since only text files changed."
